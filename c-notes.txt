@@ -1,0 +1,81 @@
+#Casting
+
+//Casting a char as an integer
+
+(int) mychar
+
+///Definitions
+
+Pre-processor runs and looks for anything that starts with a "#"
+It's something like a shortcut.  It basically copies and pastes the entire library into your code.
+
+///.rodata
+
+Definitions go into a section of memory called "read only data" or .rodata and are stored during pre-processing
+
+Command to look at sections of memory allocation of a binary:
+	readelf -S <file>
+  cat /proc/$$/maps
+
+///.data
+Global variables that are initialized go into .data
+
+///.bss
+Declared global variables go into .bss if not initialized for readable, writable,
+
+///.txt
+unintialized globals and executable code is in .txt
+
+//Heap
+
+///malloc
+
+malloc() allocates memory on the heap
+
+char *buf = malloc(1024);
+
+//Pointers
+
+void *ptr;    //this is an integer
+
+//NULL
+NULL = (void *)0
+NULL = '\0'
+
+ptr = NULL;
+
+//NULL pointer
+ptr = (void *)5
+
+
+printf("ptr: %p\n", ptr);
+printf("main: %p\n", main);
+
+int a = 0;
+int *ptr = &a;
+int **ptr2ptr = &ptr;
+a = The int value 0
+&a = The address of the integer a
+*ptr = The int value 0
+&ptr = The address of the pointer ptr
+ptr = The address of the pointer ptr
+&ptr2ptr = The address of the pointer ptr2ptr
+*ptr2ptr = The address of the pointer ptr
+**ptr2ptr = The int value 0
+ptr2ptr = The address of the pointer ptr2ptr
+
+int stackvar = 10;
+ptr = &stackvar;
+*ptr = 11; //changes the value of stackvar to 11
+
+//Structures
+
+struct mystruct{
+  int a;
+  int b;
+}
+
+//Define own data type and keyword
+typedef struct mystruct newthing;
+
+typedef used to create aliases for data types;
